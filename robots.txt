@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+User-agent: Mail.ru
+Allow: /feed.xml
+Crawl-delay: 0.1
+
+Sitemap: https://pgradio.github.io/sitemap.xml
