@@ -3,26 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поганое Радио</title>
+    <title>Poganoe Radio — Автопубликация подкаста</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px; background: #111; color: #eee; }
-        h1 { font-size: 2em; margin-bottom: 0.2em; }
-        a { color: #4fc3f7; }
-        .links { margin-top: 30px; }
-        .links a { display: block; padding: 10px 0; border-bottom: 1px solid #333; text-decoration: none; }
-        .links a:hover { color: #fff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #111;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #999;
+            font-size: 16px;
+        }
+        .section {
+            margin-bottom: 32px;
+        }
+        h2 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+        .features li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+        .features li::before {
+            content: "~";
+            position: absolute;
+            left: 0;
+            color: #4fc3f7;
+        }
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .links a {
+            color: #4fc3f7;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .links a:hover {
+            border-color: #4fc3f7;
+            background: rgba(79, 195, 247, 0.1);
+        }
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        footer a {
+            color: #999;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        footer a:hover { color: #4fc3f7; }
     </style>
 </head>
 <body>
-    <h1>Поганое Радио</h1>
-    <p>Подкаст, который говорит то, что вы думаете, но боитесь сказать вслух.</p>
-    <div class="links">
-        <a href="https://t.me/poganoeradio">Telegram-канал</a>
-        <a href="https://music.yandex.ru/album/40491527">Яндекс Музыка</a>
-        <a href="https://open.spotify.com/show/1anuuaDix6LPfMKXji1vwN">Spotify</a>
-        <a href="https://podcasts.apple.com/us/podcast/%D0%BF%D0%BE%D0%B3%D0%B0%D0%BD%D0%BE%D0%B5-%D1%80%D0%B0%D0%B4%D0%B8%D0%BE/id1874305787">Apple Podcasts</a>
-        <a href="https://www.youtube.com/channel/UCao1NFIqciMoZHH-WJ8MPyw">YouTube</a>
-        <a href="/feed.xml">RSS-фид</a>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Poganoe Radio">
+            <h1>Poganoe Radio</h1>
+            <p class="subtitle">Automated podcast content publisher</p>
+        </div>
+
+        <div class="section">
+            <h2>About</h2>
+            <p>Poganoe Radio is a Russian-language dark humor podcast. This service automatically publishes short video clips from the podcast to social media platforms.</p>
+            <p>The app uses TikTok Content Posting API to upload and publish podcast video reels directly to the <a href="https://www.tiktok.com/@poganoeradio" style="color:#4fc3f7">@poganoeradio</a> TikTok account.</p>
+        </div>
+
+        <div class="section">
+            <h2>How it works</h2>
+            <ul class="features">
+                <li>Podcast host authorizes via TikTok Login Kit (OAuth 2.0)</li>
+                <li>The app identifies the user via <code>user.info.basic</code> scope</li>
+                <li>Short video clips are generated from podcast episodes</li>
+                <li>Videos are uploaded via Content Posting API (<code>video.upload</code>)</li>
+                <li>Content is published directly to TikTok (<code>video.publish</code>)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Listen to the podcast</h2>
+            <div class="links">
+                <a href="https://t.me/poaboradio">Telegram</a>
+                <a href="https://music.yandex.ru/album/28079425">Yandex Music</a>
+                <a href="https://open.spotify.com/show/0s9VfRCYBjDnOldkP2NIiQ">Spotify</a>
+                <a href="https://podcasts.apple.com/podcast/id1722460988">Apple Podcasts</a>
+                <a href="https://www.youtube.com/@poganoeradio">YouTube</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+            </p>
+            <p style="margin-top: 8px;">&copy; 2026 Poganoe Radio</p>
+        </footer>
     </div>
 </body>
 </html>
